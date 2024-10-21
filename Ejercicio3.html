@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Crear un array vacío, luego generar 20 números al azar 
+    (utiliza random del objeto Math ) y guardarlos en un array, N es introducido por el usuario.-->
+    <script>
+        let array = [];
+        let numerosArray = prompt("¿Cuantos numeros almacenamos?");
+        for (let i = 0; i < numerosArray; i++) {
+            let numeroRandom = Math.floor( Math.random() * 10);
+            array.push (numeroRandom);
+            document.write(numeroRandom + "</br>");
+        }
+
+    </script>
+</body>
+</html>

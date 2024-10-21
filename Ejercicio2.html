@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Dado un array que contiene 
+    ["azul", "amarillo", "rojo", "verde", "café", "rosa"] determinar si un color 
+    introducido por el usuario a través de un prompt se encuentra dentro del array o no-->
+    <script>
+      let arrayColor = ["azul", "amarillo", "rojo", "verde", "café", "rosa"];
+      let pedirColor = prompt("Dime un color");
+      for (let i = 0; i < arrayColor.length; i++) {
+        if (arrayColor == pedirColor) {
+          encontrarColor = true;
+          break;
+        } else if (arrayColor != pedirColor) {
+          encontrarColor = false;
+        }
+      }
+      //una vez recorrido el bucle nos dira por pantalla si esta o no
+      if (encontrarColor == true) {
+        document.write("El color introducido está dentro del array");
+      } else if (encontrarColor == false) {
+        document.write("No existe el color introducido");
+      }
+    </script>
+  </body>
+</html>

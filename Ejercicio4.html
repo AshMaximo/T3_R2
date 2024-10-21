@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Existen dos arrays, cada uno con 5 palabras, generar los siguientes array:
+    Intersección
+    Unión
+    Diferencia-->
+    <script>
+      let arrayUno = [
+        "Piedra Trueno",
+        "Pokemon",
+        "Espeon",
+        "Pikachu",
+        "Garchomp",
+      ];
+      let arrayDos = ["Pikachu", "Piedra Trueno", "Silveon", "Torchic", "Mew"];
+      let arrayInterseccion = [];
+      let arrayUnion = [];
+      let arrayDiferencia = [];
+      //hacemos el array con la interseccion
+      for (let i = 0; i < arrayUno.length; i++) {
+        for (let j = 0; j < arrayDos.length; j++) {
+          if (arrayUno[i] == arrayDos[j]) {
+            arrayInterseccion.push(arrayUno[i]);
+          }
+        }
+      }
+      //hacemos el array de unión
+      for (let i = 0; i < arrayUno.length; i++) {
+        arrayUnion.push(arrayUno[i]);
+        arrayUnion.push(arrayDos[i]);
+      }
+      //hacemos el array diferencia
+      for (let i = 0; i < arrayUno.length; i++) {
+        for (let j = 0; j < arrayDos.length; j++) {
+          if (arrayUno[i] == arrayDos[j]) {
+            esIgual = true;
+            break;
+          } else if (arrayUno[i] != arrayDos[j]) {
+            esIgual = false;
+          }
+        }
+        if (esIgual == false) {
+          arrayDiferencia.push(arrayUno[i]);
+        }
+      }
+      for (let i = 0; i < arrayDos.length; i++) {
+        for (let j = 0; j < arrayUno.length; j++) {
+          if (arrayDos[i] == arrayUno[j]) {
+            esIgual = true;
+            break;
+          } else if (arrayDos[i] != arrayUno[j]) {
+            esIgual = false;
+          }
+        }
+        if (esIgual == false) {
+          arrayDiferencia.push(arrayDos[i]);
+        }
+      }
+
+      //Chetao
+
+      let objetoSuma = {};
+
+      // Realiza la suma de todos los elementos de los arrays en un objeto al que accederemos por la llave, las propiedades de este objeto que sumen 2 o mas formaran el array de interseccion, todas en su conjunto conformaran el array de union y las que sumen solo 1 seran el array de diferencia
+      
+      
+      for (let i = 0; i < arrayUno.length; i++) {
+        if (arrayUno[i] in objetoSuma) {
+          objetoSuma[arrayUno[i]]= objetoSuma[arrayUno[i]] + 1;
+        } else {
+          objetoSuma[arrayUno[i]] = 1;
+        }
+
+        if (arrayDos[i] in objetoSuma) {
+            objetoSuma[arrayDos[i]] = objetoSuma[arrayDos[i]] + 1;
+        } else {
+          objetoSuma[arrayDos[i]] = 1;
+        }
+      }
+    </script>
+  </body>
+</html>
