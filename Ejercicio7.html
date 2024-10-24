@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Utilizando el método random del objeto Math carga con valores aleatorios un array de 20 elementos 
+    con valores enteros entre el 0 y el 100. Muestra los valores sin ordenar y ordenados (eliminando duplicados), 
+    para ello deberás implementar alguno de los algoritmos de ordenación, se recomienda el burbuja por su fácil implementación.-->
+    <script>
+      let array = [];
+      document.write("Valores sin ordenar</br>");
+      for (let i = 0; i < 20; i++) {
+        let numeroRandom = Math.floor(Math.random() * 100);
+        array.push(numeroRandom);
+        document.write(array[i] + "</br>");        
+
+      }
+      document.write("Valores ordenados</br>");
+
+      for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < array.length - i - 1; j++) {
+          if (array[j] > array[j + 1]) {
+            // Si la condicion es si, lo cambia de posicion
+            var temp = array[j];
+            array[j] = array[j + 1];
+            array[j + 1] = temp;
+          }
+        } 
+      }
+      for (let i = 0; i < array.length; i++) {
+        document.write(array[i] + "</br>");        
+      }
+      
+
+    </script>
+  </body>
+</html>

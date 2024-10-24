@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Leer una cadena de texto introducida por el usuario y posteriormente, mostrar la siguiente información en una nueva ventana:
+•
+Número de palabras.
+•
+Primera palabra.
+•
+Última palabra.
+•
+Las palabras colocadas en orden inverso.
+•
+las palabras ordenadas de la a la z y las palabras ordenadas de la z a la a.-->
+    <script>
+      var nombres = prompt("Escribe los nombres separados por ,");
+      var arrayNombre = nombres.split(",");
+      var numPalabras = arrayNombre.length;
+      var primeraPalabra = arrayNombre[0];
+      var ultimaPalabra = arrayNombre[arrayNombre.length - 1];
+      var palabraInversa = "";
+      var arrayInverso = [];
+      //Da la vuelta a las palabras de un array y las mete en otro array
+      for (let i = 0; i < arrayNombre.length; i++) {
+        palabraInversa = "";
+        for (let j = arrayNombre[i].length - 1; j >= 0; j--) {
+          palabraInversa = palabraInversa + arrayNombre[i][j];
+        }
+        arrayInverso.push(palabraInversa);
+      }
+      //Esto ordena las palabras de z a la a
+      for (var i = 0; i < arrayNombre.length; i++) {
+        for (var j = 0; j < arrayNombre.length - i - 1; j++) {
+          if (arrayNombre[j] < arrayNombre[j + 1]) {
+            // Si la condicion es si, lo cambia de posicion
+            var temp = arrayNombre[j];
+            arrayNombre[j] = arrayNombre[j + 1];
+            arrayNombre[j + 1] = temp;
+          }
+        }
+      }
+      //Utilizamos slice para devolver un array con la misma longitud que no es una referencia a arrayNombre
+      //por lo tanto cuando modificamos arrayZA,no modificamos arrayNombre y viceversa
+      var arrayZA = arrayNombre.slice();
+      //ordena de la a la z
+      for (var i = 0; i < arrayNombre.length; i++) {
+        for (var j = 0; j < arrayNombre.length - i - 1; j++) {
+          if (arrayNombre[j] > arrayNombre[j + 1]) {
+            // Si la condicion es si, lo cambia de posicion
+            var temp = arrayNombre[j];
+            arrayNombre[j] = arrayNombre[j + 1];
+            arrayNombre[j + 1] = temp;
+          }
+        }
+      }
+      var arrayAZ = arrayNombre.slice();
+      // Mostrar la información en una nueva ventana
+      let nuevaVentana = window.open("", "Resultado", "width=400,height=300");
+            nuevaVentana.document.write("<h2>Resultados:</h2>");
+            nuevaVentana.document.write("<p><strong>Número de palabras:</strong> " + numPalabras + "</p>");
+            nuevaVentana.document.write("<p><strong>Primera palabra:</strong> " + primeraPalabra + "</p>");
+            nuevaVentana.document.write("<p><strong>Última palabra:</strong> " + ultimaPalabra + "</p>");
+            nuevaVentana.document.write("<p><strong>Palabras en orden inverso:</strong> " + arrayInverso + "</p>");
+            nuevaVentana.document.write("<p><strong>Palabras ordenadas de la A a la Z:</strong> " + arrayAZ.join(' ') + "</p>");
+            nuevaVentana.document.write("<p><strong>Palabras ordenadas de la Z a la A:</strong> " + arrayZA.join(' ') + "</p>");
+    </script>
+  </body>
+</html>

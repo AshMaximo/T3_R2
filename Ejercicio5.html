@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Utilizando el método random del objeto Math carga con valores aleatorios un array 
+    de 20 elementos con valores enteros entre el 0 y el 100. Ten en cuenta que random devuelve 
+    un número flotante entre 0 y 1. Una vez cargado muestra los datos del array por pantalla.
+Tras ello muestra la información del ejercicio anterior sobre los valores de dicho array, es decir:
+Valor mínimo
+Valor máximo
+Valor medio.-->
+<script>
+    let array = [];
+    for (let i = 0; i < 20; i++) {
+        let numeroRandom = Math.floor( Math.random() * 100);
+            array.push (numeroRandom);
+            document.write(array[i]+ "</br>");   
+    }
+    let minimoValor = array[0];
+      let maximoValor = array[0];
+      let mediaValor = 0;
+      for (let i = 0; i < array.length; i++) {
+        //hacemos la comparacion del valor mas bajo
+        if (array[i] < minimoValor) {
+          minimoValor = array[i];
+        }
+        //hacemos la comparacion del valor mas alto
+        if (array[i] > maximoValor) {
+          maximoValor = array[i];
+        }
+        //hacemos la media
+        mediaValor = array[i] + mediaValor;
+      }
+      mediaValor = mediaValor / array.length;
+      document.write(`El numero mínimo es ${minimoValor})</br>`);
+      document.write(`El numero máximo es ${maximoValor})</br>`);
+      document.write(`La media es ${mediaValor})`);
+</script>
+  </body>
+</html>

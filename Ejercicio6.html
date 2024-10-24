@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Crea una página web que contenga varios párrafos con texto de ejemplo. 
+    La página contendrá un botón que al pulsarlo solicitará al usuario una palabra o 
+    cadena de texto e indicará si existe o no dicha palabra dentro del document-->
+    <p id="parrafo1">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Dicta aut expedita hic perferendis voluptatem modi aspernatur eos velit dolor rem soluta, 
+        ipsam excepturi odio quisquam sit atque quaerat! Consequatur, atque?</p>
+        <p id="parrafo2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, in cumque! 
+        Amet unde maiores, fugit molestiae ab ullam odit consectetur sint, voluptates doloribus officiis, 
+        soluta quam aut dolor fuga temporibus?</p>
+    <h1>Busca la palabra o cadena de texto</h1>
+    <button onclick="buscarPalabra()">Búsqueda</button>
+    <h2 id="resultado"></h2>
+    <script>
+        function buscarPalabra() {
+            var pedir = prompt("Escribe una palabra o un texto");
+        //cogemos el parrafo con el getelement y con el textcontent coge el contenido del texto
+        var parrafo1 = document.getElementById("parrafo1").textContent;
+        var parrafo2 = document.getElementById("parrafo2").textContent;
+        var arrayCadena = parrafo1.split(" ");
+        var arrayCadena2 = parrafo2.split(" ");
+        for (let i = 0; i < arrayCadena.length; i++) {
+            if (pedir == arrayCadena[i]) {
+                alert("El texto introducido está en la primera cadena de texto");
+                break;
+            }  
+        }
+        for (let i = 0; i < arrayCadena2.length; i++) {
+            if (pedir == arrayCadena2[i]) {
+                alert("El texto introducido está en la segunda cadena de texto");
+                break;
+            }            
+        }
+        }
+
+    </script>
+</body>
+</html>

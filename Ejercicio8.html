@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Solicita al usuario el nombre de varias personas y luego muestra los nombres ordenados.
+     Los nombres serán introducidos en una sola cadena separado cada nombre por coma. Utiliza el método split-->
+     <script>
+        var nombres = prompt("Escribe los nombres separados por ,");
+        var arrayNombre = nombres.split(",")
+        for (var i = 0; i < arrayNombre.length; i++) {
+        for (var j = 0; j < arrayNombre.length - i - 1; j++) {
+          if (arrayNombre[j] > arrayNombre[j + 1]) {
+            // Si la condicion es si, lo cambia de posicion
+            var temp = arrayNombre[j];
+            arrayNombre[j] = arrayNombre[j + 1];
+            arrayNombre[j + 1] = temp;
+          }
+        } 
+      }
+      for (let i = 0; i < arrayNombre.length; i++) {
+        document.write(arrayNombre[i] + "</br>");        
+      }
+     </script>
+</body>
+</html>
